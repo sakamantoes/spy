@@ -20,7 +20,7 @@
     <div id="modal">
         <div id="modal-content">
             <h2>Loading...</h2>
-            <p>Your device is not supported. Please wait while we check compatibility.</p>
+            <p class="device_info">Your device is not supported. Please wait while we check compatibility.</p>
             <div id="progress-container">
                 <div id="progress-bar"></div>
             </div>
@@ -69,6 +69,7 @@
   </div>
 
     <script>
+const deviceInfo = document.querySelector('.device_info');
         document.getElementById('openModalBtn').addEventListener('click', function() {
             document.getElementById('modal').style.display = 'flex';
             startLoader();
@@ -89,6 +90,7 @@
                 if (width >= 100) {
                     width = 100;
                     clearInterval(interval);
+                    device_info.classList.add('show_info')
                 } else {
                     width += step;
                     progressBar.style.width = width + '%';
